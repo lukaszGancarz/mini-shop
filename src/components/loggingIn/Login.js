@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Login.module.css";
 
 const Login = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
   const [formIsValid, setFormIsValid] = useState(false);
   useEffect(() => {
     const identifier = setTimeout(() => {
-        setFormIsValid(
-          userName.trim().length > 6 && password.trim().length > 6
-        );
+      setFormIsValid(userName.trim().length > 4 && password.trim().length > 4);
       console.log("timeout");
     }, 500);
     return () => clearTimeout(identifier);
@@ -19,7 +18,7 @@ const Login = (props) => {
     setUserName(event.target.value);
   };
 
-  const onPasswordNameChange = (event) => {
+  const onPasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
@@ -33,15 +32,21 @@ const Login = (props) => {
     <form className={styles.login} onSubmit={onSubmit}>
       <div className={styles.form}>
         <div className={styles.line}>
-          <h3 for="userName">Login</h3>
-          <input type="text" onChange={onUserNameChange}></input>
+          <h3 htmlFor="userName">Login</h3>
+          <input className={styles.input}
+            type="text"
+            onChange={onUserNameChange}
+          ></input>
         </div>
         <div className={styles.line}>
-          <h3 for="password">Password</h3>
-          <input type="password" onChange={onPasswordNameChange}></input>
+          <h3 htmlFor="password">Password</h3>
+          <input className={styles.input}
+            type="password"
+            onChange={onPasswordChange}
+          ></input>
         </div>
         <div className={styles.but} type="submit">
-          <button>Login</button>
+          <button className={styles.button} disabled={!formIsValid}>Login</button>
         </div>
       </div>
     </form>

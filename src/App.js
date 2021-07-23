@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import shortId from "short-id";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -10,10 +11,55 @@ import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
 import Login from "./components/loggingIn/Login";
 import LoggedOut from "./components/loggedOut/LoggedOut";
+import Products from "./components/products/Products";
+import skarpeta from "./images/skarpeta.jpg";
+import sernik from "./images/sernik.jpg";
+import Cart from "./components/cart/Cart";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isUser, setIsUser] = useState(false);
+  const [products, setProducts] = useState([
+    {
+      id: shortId.generate(),
+      title: "Skarpeta",
+      price: 7.99,
+      description: "Świeża, nie noszona",
+      photo: skarpeta,
+    },
+    {
+      id: shortId.generate(),
+      title: "Kawałek sernika",
+      price: 4.49,
+      description:
+        "Mało używany. Bardzo dobre dla każdego kto lubi smacznie zjeść",
+      photo: sernik,
+    },
+  ]);
+  const [cart, setCard] = useState([]);
+
+  const addItemToCart = (item, count) => {
+    const foundedProduct = cart.find(
+      (foundedItem) => foundedItem.id === item.id
+    );
+
+    if (!foundedProduct) {
+      setCard([
+        ...cart,
+        {
+          ...item,
+          count,
+        },
+      ]);
+      return;
+    }
+
+    foundedProduct.count += count;
+    foundedProduct.price += count * item.price;
+    setCard([...cart.filter((x) => x.id !== item.id), foundedProduct]);
+  };
+
+  useEffect(() => console.log(cart), [cart]);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -37,8 +83,16 @@ function App() {
               <Redirect to="/home" />
             )}
           </Route>
+          <Route path="/products">
+            <Products items={products} addToCart={addItemToCart} />
+          </Route>
+          {isLoggedIn && (
+            <Route path="/cart">
+              <Cart items={cart} />
+            </Route>
+          )}
           <Route path="/loggedOut">
-            <LoggedOut/>
+            <LoggedOut />
           </Route>
           <Route path="/">
             <Home loggedIn={isLoggedIn} />
