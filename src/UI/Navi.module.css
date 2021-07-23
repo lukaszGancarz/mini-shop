@@ -1,0 +1,38 @@
+.navi {
+  width: 100vw;
+  height: 8vh;
+  position: sticky;
+  top: 0;
+  background-color: rgba(38, 74, 235, 0.637);
+  display: flex;
+  justify-content: space-between;
+}
+.buttons {
+  width: 200px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+img {
+  width: 50px;
+}
+
+.titles {
+  color: rgb(255, 151, 32);
+  font-family: "Segoe UI";
+  font-size: 34px;
+  font-weight: bold;
+  font-style: oblique;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s ease;
+  text-shadow: 4px 4px black;
+  margin-bottom: 10px;
+}
+.titles:hover {
+  transform: scale(180%);
+}

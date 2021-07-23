@@ -1,0 +1,13 @@
+.loggedOut {
+    height: 89vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: rgb(251, 251, 250);
+}
+
+.gif {
+    height: 600px;
+    width: 600px;
+}
