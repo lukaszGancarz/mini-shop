@@ -23,7 +23,7 @@ function App() {
     {
       id: shortId.generate(),
       title: "Skarpeta",
-      price: 10.50,
+      price: 10.5,
       description: "Świeża, nie noszona",
       photo: skarpeta,
     },
@@ -37,7 +37,7 @@ function App() {
     },
   ]);
 
-  const [cart, setCard] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const addItemToCart = (item, count, setCount) => {
     const foundedProduct = cart.find(
@@ -45,7 +45,7 @@ function App() {
     );
 
     if (!foundedProduct) {
-      setCard([
+      setCart([
         ...cart,
         {
           ...item,
@@ -56,8 +56,13 @@ function App() {
     }
 
     foundedProduct.count += count;
-    setCard([...cart.filter((x) => x.id !== item.id), foundedProduct]);
+    setCart([...cart.filter((x) => x.id !== item.id), foundedProduct]);
     setCount(1);
+  };
+
+  const deleteFromCart = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+    return;
   };
 
   useEffect(() => console.log(cart), [cart]);
@@ -89,7 +94,7 @@ function App() {
           </Route>
           {isLoggedIn && (
             <Route path="/cart">
-              <Cart items={cart} />
+              <Cart items={cart} deleteFromCart={deleteFromCart} />
             </Route>
           )}
           <Route path="/loggedOut">

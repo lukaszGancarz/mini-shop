@@ -11,8 +11,6 @@
 .ul {
   width: 90%;
   list-style: none;
-  display: flex;
-  flex-direction: column;
   margin: 20px 10%;
   padding: 0;
 }
@@ -86,4 +84,20 @@
   border-radius: 10px;
   margin: 10px;
   padding: 0;
+}
+
+.x {
+    width: 25px;
+    height: 25px;
+    border: 2px solid rgb(255, 29, 29);
+    background-color: red;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px 0 10px;
+    cursor: pointer;
+}
+.x:hover {
+    transform: scale(120%);
 }

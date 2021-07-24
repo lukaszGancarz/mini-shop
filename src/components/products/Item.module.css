@@ -30,7 +30,7 @@
 
 .price {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     font-size: 35px;
     color: rgb(255, 115, 0);
     margin-bottom: 5px;
@@ -51,11 +51,12 @@
 }
 
 .input {
-    width: 50px;
+    box-sizing: border-box;
+    width: 70px;
     height: 40px;
     font-size: 23px;
     background-color: palegreen;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     border: 2px solid green;
     border-radius: 10px;
@@ -69,4 +70,9 @@
     background-color: cornflowerblue;
     border: 2px solid blue;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(95%);
 }
