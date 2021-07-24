@@ -34,7 +34,8 @@ const Item = (props) => {
                 description: props.description,
                 photo: props.photo,
               },
-              count
+              Number(count),
+              setCount,
             )
           }
         >

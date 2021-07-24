@@ -23,22 +23,23 @@ function App() {
     {
       id: shortId.generate(),
       title: "Skarpeta",
-      price: 7.99,
+      price: 10.50,
       description: "Świeża, nie noszona",
       photo: skarpeta,
     },
     {
       id: shortId.generate(),
       title: "Kawałek sernika",
-      price: 4.49,
+      price: 5.99,
       description:
         "Mało używany. Bardzo dobre dla każdego kto lubi smacznie zjeść",
       photo: sernik,
     },
   ]);
+
   const [cart, setCard] = useState([]);
 
-  const addItemToCart = (item, count) => {
+  const addItemToCart = (item, count, setCount) => {
     const foundedProduct = cart.find(
       (foundedItem) => foundedItem.id === item.id
     );
@@ -55,8 +56,8 @@ function App() {
     }
 
     foundedProduct.count += count;
-    foundedProduct.price += count * item.price;
     setCard([...cart.filter((x) => x.id !== item.id), foundedProduct]);
+    setCount(1);
   };
 
   useEffect(() => console.log(cart), [cart]);
