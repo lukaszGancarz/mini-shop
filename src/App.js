@@ -48,6 +48,7 @@ function App() {
       setCard([
         ...cart,
         {
+          key: item.id,
           ...item,
           count,
         },
