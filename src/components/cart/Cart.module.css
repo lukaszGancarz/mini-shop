@@ -21,38 +21,69 @@
   width: auto;
   height: 150px;
   border: 2px solid rgb(71, 176, 224);
+  border-radius: 10px;
   margin: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.photoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
 .photo {
-    width: 230px;
-    height: 140px;
-    border: 1px solid orange;
-    margin: 5px;
+  width: 230px;
+  height: 140px;
+  border: 1px solid orange;
+  margin: 5px;
 }
 
 .title {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    margin: 5px;
-    font-size: 23px;
-    font-weight: bold;
-}
-
-.total {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 35px;
-    color: rgb(255, 115, 0);
-    margin-bottom: 5px;
+  width: 20%;
+  height: auto;
+  display: flex;
+  margin-left: 10px;
+  font-size: 23px;
+  font-weight: bold;
+  color: rgb(1, 136, 1);
 }
 
 .description {
-    height: 75px;
+  width: 37%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  margin: 0px;
+  width: 10%;
+  border: 1px ;
+  display: flex;
+  justify-content: center;
+}
+
+.equal {
+    width: 3%;
     display: flex;
-    align-items: center;
+    justify-content: center;
+}
+
+.total {
+  width: 20%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: rgb(255, 115, 0);
+  margin-bottom: 5px;
+  border: 1px solid yellow;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 0;
 }
