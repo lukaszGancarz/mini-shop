@@ -61,7 +61,8 @@ function App() {
   };
 
   const deleteFromCart = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
+    const tempCart = cart.filter((item) => item.id !== id);
+    setCart(tempCart);
     return;
   };
 

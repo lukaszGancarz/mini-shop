@@ -26,7 +26,7 @@ const Cart = (props) => {
             </div>
             <button
               className={styles.x}
-              onClick={() => props.deleteFromCart({ id: props.id })}
+              onClick={() => props.deleteFromCart(item.id)}
             >
               X
             </button>
