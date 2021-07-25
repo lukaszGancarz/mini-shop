@@ -6,7 +6,7 @@ const Cart = (props) => {
     <div className={styles.list}>
       <ul className={styles.ul}>
         {props.items.map((item) => (
-          <li className={styles.li}>
+          <li className={styles.li} key={item.id}>
             <div className={styles.photoDiv}>
               <img
                 className={styles.photo}
