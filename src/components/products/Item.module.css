@@ -53,12 +53,12 @@
 
 .input {
     box-sizing: border-box;
-    width: 50px;
-    height: 100%;
+    width: 70px;
+    height: 40px;
     font-size: 23px;
     background-color: palegreen;
-    padding-left: 10px;
-    margin-left: 25px;
+    padding: 10px;
+    margin: 0;
     border: 2px solid green;
     border-radius: 10px;
 }
@@ -72,6 +72,10 @@
     border: 2px solid blue;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(95%);
 }
 
 .button:hover {

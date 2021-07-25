@@ -24,6 +24,12 @@ const Cart = (props) => {
             <div className={styles.total}>
               {(item.count * item.price).toFixed(2)} zł
             </div>
+            <button
+              className={styles.x}
+              onClick={() => props.deleteFromCart(item.id)}
+            >
+              X
+            </button>
           </li>
         ))}
       </ul>
